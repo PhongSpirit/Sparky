@@ -1,7 +1,7 @@
 #pragma once
 
 #include <deque>
-#include "drawable.h"
+#include "staticdrawable.h"
 #include "../../maths/maths.h"
 
 namespace cphong { namespace shapes {
@@ -11,9 +11,9 @@ namespace cphong { namespace shapes {
     private:
         double m_xPos, m_yPos;
 
-        std::deque<const Drawable*> m_drawableQueue;
+        std::deque<const StaticDrawable*> m_drawableQueue;
     public:
-        void push(const Drawable* drawable);
+        void push(const StaticDrawable* drawable);
         void setLightPos(double x, double y);
         void light();
     };

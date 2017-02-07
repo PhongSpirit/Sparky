@@ -2,12 +2,12 @@
 
 #include <GL/glew.h>
 
-#include "drawable.h"
+#include "staticdrawable.h"
 #include "../../maths/maths.h"
 
 namespace cphong { namespace shapes {
 
-    class Square : public Drawable
+    class Square : public StaticDrawable
     {
     private:
         maths::vec2 m_size;
@@ -16,7 +16,7 @@ namespace cphong { namespace shapes {
     public:
         Square(const maths::vec2& size, const maths::vec3& position, const maths::vec4& color);
     private:
-        void prepare() override;
+        void init() override;
     };
 
 } }

@@ -1,8 +1,8 @@
-#include "drawable.h"
+#include "staticdrawable.h"
 
 namespace cphong { namespace shapes {
 
-    Drawable::~Drawable()
+    StaticDrawable::~StaticDrawable()
     {
         delete m_shader;
         delete m_indexBuffer;
@@ -10,12 +10,12 @@ namespace cphong { namespace shapes {
         delete m_vertexArray;
     }
 
-    const graphics::Shader* Drawable::getShader() const
+    const graphics::Shader* StaticDrawable::getShader() const
     {
         return m_shader;
     }
 
-    void Drawable::enable() const
+    void StaticDrawable::enable() const
     {
         m_vertexArray->bind();
         m_vertexBuffer->bind();
@@ -23,7 +23,7 @@ namespace cphong { namespace shapes {
         m_shader->use();
     }
 
-    void Drawable::disable() const
+    void StaticDrawable::disable() const
     {
         m_shader->unuse();
         m_indexBuffer->unbind();
@@ -31,7 +31,7 @@ namespace cphong { namespace shapes {
         m_vertexArray->unbind();
     }
 
-    void Drawable::draw() const
+    void StaticDrawable::draw() const
     {
         glDrawElements(GL_TRIANGLES, m_indexBuffer->getCount(), GL_UNSIGNED_SHORT, (const void*)0);
     }

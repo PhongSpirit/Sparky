@@ -2,7 +2,7 @@
 
 namespace cphong { namespace shapes {
 
-    void Light::push(const Drawable* drawable)
+    void Light::push(const StaticDrawable* drawable)
     {
         m_drawableQueue.push_back(drawable);
     }
@@ -15,7 +15,7 @@ namespace cphong { namespace shapes {
 
     void Light::light()
     {
-        for (const Drawable* i : m_drawableQueue)
+        for (const StaticDrawable* i : m_drawableQueue)
         {
             const graphics::Shader* shader = i->getShader();
             shader->use();

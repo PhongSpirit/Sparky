@@ -5,10 +5,10 @@ namespace cphong { namespace shapes {
     Square::Square(const maths::vec2& size, const maths::vec3& position, const maths::vec4& color)
         : m_size(size), m_position(position), m_color(color)
     {
-        prepare();
+        init();
     }
 
-    void Square::prepare()
+    void Square::init()
     {
         const GLfloat vertices[] =
         {
@@ -29,7 +29,7 @@ namespace cphong { namespace shapes {
         
         m_vertexArray = new graphics::VertexArray();
         m_vertexArray->setVertexAttribPointer(m_vertexBuffer, 0, 3, 7 * sizeof(GLfloat), (void*)0);
-        m_vertexArray->setVertexAttribPointer(m_vertexBuffer, 1, 4, 7 * sizeof(GLfloat), (void*)(4 * sizeof(GLfloat)));
+        m_vertexArray->setVertexAttribPointer(m_vertexBuffer, 1, 4, 7 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
         
         m_indexBuffer = new graphics::IndexBuffer(6, indices);
         

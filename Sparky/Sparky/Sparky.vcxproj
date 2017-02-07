@@ -130,7 +130,7 @@
     <ClCompile Include="src\graphics\buffers\vertexarray.cpp" />
     <ClCompile Include="src\graphics\buffers\vertexbuffer.cpp" />
     <ClCompile Include="src\graphics\renderer2d.cpp" />
-    <ClCompile Include="src\graphics\shapes\drawable.cpp" />
+    <ClCompile Include="src\graphics\shapes\staticdrawable.cpp" />
     <ClCompile Include="src\graphics\shapes\light.cpp" />
     <ClCompile Include="src\graphics\shapes\square.cpp" />
     <ClCompile Include="src\graphics\window.cpp" />
@@ -148,6 +148,7 @@
     <ClInclude Include="src\graphics\buffers\vertexbuffer.h" />
     <ClInclude Include="src\graphics\renderable2d.h" />
     <ClInclude Include="src\graphics\shapes\drawable.h" />
+    <ClInclude Include="src\graphics\shapes\staticdrawable.h" />
     <ClInclude Include="src\graphics\renderer2d.h" />
     <ClInclude Include="src\graphics\shapes\light.h" />
     <ClInclude Include="src\graphics\shapes\square.h" />
