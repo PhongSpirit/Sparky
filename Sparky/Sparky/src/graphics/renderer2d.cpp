@@ -2,19 +2,20 @@
 
 namespace cphong { namespace graphics {
 
-    void Renderer2D::submit(const shapes::Drawable* drawable)
+    void Renderer2D::submit(const Drawer* drawer)
     {
-        m_renderQueue.push_back(drawable);
+        m_renderQueue.push_back(drawer);
     }
 
     void Renderer2D::flush()
     {
         while (!m_renderQueue.empty())
         {
-            const shapes::Drawable* drawable = m_renderQueue.front();
-            drawable->enable();
-            drawable->draw();
-            drawable->disable();
+            const Drawer* drawer = m_renderQueue.front();
+            
+            drawer->enable();
+            drawer->draw();
+            drawer->disable();
 
             m_renderQueue.pop_front();
         }

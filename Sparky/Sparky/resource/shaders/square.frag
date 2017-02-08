@@ -7,6 +7,6 @@ uniform vec2 lightPos;
 
 void main()
 {
-	float extensity = 0.5f / length(ex_position.xy - lightPos);
+	float extensity = 1.0f / length(ex_position.xy - lightPos);
 	gl_FragColor = ex_color * extensity;
 }

@@ -2,17 +2,17 @@
 
 #include <deque>
 
-#include "renderable2d.h"
+#include "shapes/drawer.h"
 
 namespace cphong { namespace graphics {
 
-    class Renderer2D : public Renderable2D
+    class Renderer2D
     {
     private:
-        std::deque<const shapes::Drawable*> m_renderQueue;
+        std::deque<const Drawer*> m_renderQueue;
     public:
-        void submit(const shapes::Drawable* drawable) override;
-        void flush() override;
+        void submit(const Drawer* drawer);
+        void flush();
     };
 
 } }

@@ -1,15 +1,25 @@
 #pragma once
 
-namespace cphong { namespace shapes {
+#include <vector>
+#include <GL/glew.h>
+#include "../../maths/maths.h"
+
+namespace cphong { namespace graphics {
+
+    struct VertexData
+    {
+        maths::vec3 vertex;
+        maths::vec4 color;
+    };
 
     class Drawable
     {
     public:
-        virtual void enable() const = 0;
-        virtual void disable() const = 0;
-        virtual void draw() const = 0;
-    private:
-        virtual void init() = 0;
+        virtual ~Drawable() = default;
+
+        virtual maths::vec3 position() const = 0;
+        virtual std::vector<GLfloat> vertices() const = 0;
+        virtual std::vector<GLushort> indices() const = 0;
     };
 
 } }

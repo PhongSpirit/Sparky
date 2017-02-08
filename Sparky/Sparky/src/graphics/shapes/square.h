@@ -2,21 +2,25 @@
 
 #include <GL/glew.h>
 
-#include "staticdrawable.h"
+#include "drawable.h"
 #include "../../maths/maths.h"
 
-namespace cphong { namespace shapes {
+namespace cphong { namespace graphics {
 
-    class Square : public StaticDrawable
+    class Square : public Drawable
     {
     private:
-        maths::vec2 m_size;
-        maths::vec3 m_position;
+        float m_width, m_height, m_x, m_y;
         maths::vec4 m_color;
     public:
-        Square(const maths::vec2& size, const maths::vec3& position, const maths::vec4& color);
-    private:
-        void init() override;
+        Square(float width, float height, float x, float y, const maths::vec4& color);
+
+        maths::vec2 getSize() const;
+        maths::vec4 getColor() const;
+
+        maths::vec3 position() const override;
+        std::vector<GLfloat> vertices() const override;
+        std::vector<GLushort> indices() const override;
     };
 
 } }

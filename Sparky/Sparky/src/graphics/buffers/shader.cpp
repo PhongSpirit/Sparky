@@ -2,10 +2,26 @@
 
 namespace cphong { namespace graphics {
 
+    void checkError(GLuint shader) {
+        GLint Result = GL_FALSE;
+        int InfoLogLength;
+        glGetShaderiv(shader, GL_COMPILE_STATUS, &Result);
+        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &InfoLogLength);
+        if (InfoLogLength > 0) {
+            std::vector<char> VertexShaderErrorMessage(InfoLogLength + 1);
+            glGetShaderInfoLog(shader, InfoLogLength, NULL, &VertexShaderErrorMessage[0]);
+            fprintf(stdout, "%s\n", &VertexShaderErrorMessage[0]);
+        }
+    }
+
     Shader::Shader(const char* vertexPath, const char* fragmentPath)
     {
         m_vertexId = compileShader(GL_VERTEX_SHADER, vertexPath);
         m_fragmentId = compileShader(GL_FRAGMENT_SHADER, fragmentPath);
+
+        checkError(m_vertexId);
+        checkError(m_fragmentId);
+
         linkProgram();
     }
 
